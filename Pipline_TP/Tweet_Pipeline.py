@@ -88,7 +88,7 @@ clf = make_pipeline(
     OneVsRestClassifier(SVC(kernel='linear', probability=True)))
 
 
-# In[23]:
+# In[27]:
 
 
 X = df['tweet']
@@ -97,14 +97,19 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.80, random_s
 clf.fit(X=X_train, y=y_train)
 
 
-# In[24]:
+# In[28]:
 
 
 res = pickle.dumps(clf)
+
+
+# In[29]:
+
+
 clf2 = pickle.loads(res)
 
 
-# In[25]:
+# In[30]:
 
 
 clf2.predict(df['tweet'][0:15])
